@@ -1,7 +1,7 @@
 {
     "id": "org.xiphos.Xiphos",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "50",
+    "runtime-version": "51",
     "sdk": "org.gnome.Sdk",
     "command": "xiphos",
     "rename-desktop-file": "xiphos.desktop",
@@ -19,26 +19,21 @@
     ],
     "cleanup": [
         "/include",
-        "*.a",
-        "*.la",
         "/lib/pkgconfig",
-        "/share/gtk-doc",
-        "/share/pkgconfig"
+        "/share/doc",
+        "/share/man",
+        "*.a",
+        "*.la"
     ],
     "modules": [
-        "shared-modules/dbus-glib/dbus-glib.json",
         {
             "name": "biblesync",
             "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DBUILD_SHARED_LIBS=ON",
-                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/karlkleinpaste/biblesync/releases/download/2.1.0/biblesync-2.1.0.tar.gz",
-                    "sha256": "9083fcacc4d85f2b8c3a3254112129c02d940d20db8c0c5bcb6239b115e8d0e8",
+                    "url": "https://github.com/karlkleinpaste/biblesync/releases/download/2.2.0/biblesync-2.2.0.tar.gz",
+                    "sha256": "ea865789d1837a058fa84e24c31b0df85a3b78d54e07aea496b18bef31448a9e",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 15373,
@@ -91,49 +86,19 @@
             ]
         },
         {
-            "name": "appstream",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Drpm=false"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_0_8_3.tar.gz",
-                    "sha256": "15ad7690b0132d883bd066699a7b55f6cef4c0f266d18d781ce5d8112fb4ee63",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 14018,
-                        "url-template": "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_${version0}_${version1}_${version2}.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
             "name": "xiphos",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/crosswire/xiphos/releases/download/4.3.2/xiphos-4.3.2.tar.xz",
-                    "sha256": "2c10f6bb9f72b0d49e0abfde6867a825e620bdd8561bf115758713201cdd80a7",
+                    "url": "https://github.com/crosswire/xiphos/releases/download/4.5.0/xiphos-4.5.0.tar.xz",
+                    "sha256": "bad517f01740cbdb37461a8034bcb7218c8a2e634240985574a953f46b56a490",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 372425,
                         "url-template": "https://github.com/crosswire/xiphos/releases/download/$version/xiphos-$version.tar.xz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/xiphos-build.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/xiphos-fix-appdata-file.patch"
                 }
             ]
         }
