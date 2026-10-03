@@ -44,6 +44,12 @@
         },
         {
             "name": "sword",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                "-DSWORD_LINK_LIBRARIES=curl"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -81,6 +87,67 @@
                     "dest-filename": "autogen.sh",
                     "commands": [
                         "autoreconf -vfi"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libspeechd",
+            "config-opts": [
+                "--disable-python",
+                "--with-systemdsystemunitdir=''",
+                "--disable-rpath",
+                "--disable-static",
+                "--with-kali=no",
+                "--with-baratinoo=no",
+                "--with-ibmtts=no",
+                "--with-voxin=no",
+                "--without-oss"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/brailcom/speechd/releases/download/0.12.1/speech-dispatcher-0.12.1.tar.gz",
+                    "sha256": "b14a5238d287d2dcce4dd42bbd66ca65fa228e7e683708267f7b34036f7ba4b4",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 328138,
+                        "url-template": "https://github.com/brailcom/speechd/releases/download/$version/speech-dispatcher-$version.tar.gz"
+                    }
+                }
+            ],
+            "cleanup": [
+                "/bin",
+                "/etc",
+                "/libexec",
+                "/lib/speech-dispatcher",
+                "/share/sounds/speech-dispatcher",
+                "/share/speech-dispatcher"
+            ],
+            "modules": [
+                {
+                    "name": "dotconf",
+                    "cleanup": [
+                        "*"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/williamh/dotconf/archive/refs/tags/v1.4.1.tar.gz",
+                            "sha256": "5922c46cacf99b2ecc4853d28a2bda4a489292e73276e604bd9cba29dfca892d",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 13410,
+                                "url-template": "https://github.com/williamh/dotconf/archive/refs/tags/v$version.tar.gz"
+                            }
+                        },
+                        {
+                            "type": "script",
+                            "commands": [
+                                "autoreconf -fiv"
+                            ],
+                            "dest-filename": "autogen.sh"
+                        }
                     ]
                 }
             ]
