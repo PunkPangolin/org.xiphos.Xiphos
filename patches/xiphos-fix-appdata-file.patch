@@ -1,15 +1,14 @@
 diff --git a/desktop/xiphos.appdata.xml b/desktop/xiphos.appdata.xml
-index 80ae3625..f5fdbb08 100644
+index 04e20ec..4fd165c 100644
 --- a/desktop/xiphos.appdata.xml
 +++ b/desktop/xiphos.appdata.xml
-@@ -61,4 +61,10 @@
+@@ -67,4 +67,9 @@
   <url type="homepage">https://github.com/crosswire/xiphos/</url>
   <update_contact>xiphos-devel@crosswire.org</update_contact>
   <translation type="gettext">Xiphos</translation>
-+ <content_rating type="oars-1.1" />
 + <releases>
-+   <release version="4.3.2" date="2025-04-10">
-+     <url type="details">https://xiphos.org/development/release-notes.html</url>
-+   </release>
-+ </releases>
++  <release version="4.5.0" date="2026-08-31">
++    <url type="details">https://xiphos.org/development/release-notes.html</url>
++  </release>
++</releases>
  </component>
