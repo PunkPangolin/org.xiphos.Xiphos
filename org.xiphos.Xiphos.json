@@ -162,6 +162,10 @@
                         "project-id": 372425,
                         "url-template": "https://github.com/crosswire/xiphos/releases/download/$version/xiphos-$version.tar.xz"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/xiphos-fix-appdata-file.patch"
                 }
             ]
         }
